@@ -19,7 +19,7 @@ feature 'posts' do
 
 		scenario 'display posts' do
 			visit '/posts'
-			expect(page).to have_content('Pic')
+			expect(page).to have_css('.index-image')
 			expect(page).not_to have_content('No posts')
 		end
 		
@@ -32,7 +32,7 @@ feature 'posts' do
 			click_link 'Add a post'
 			fill_in 'Name', with: 'Pic'
 			click_button 'Create Post'
-			expect(page).to have_content 'Pic'
+			expect(page).to have_css('.index-image')
 			expect(current_path).to eq '/posts'
 		end
 
@@ -43,8 +43,8 @@ feature 'posts' do
 
 		scenario 'lets a user view a post' do
 			visit '/posts'
-			click_link 'Pic'
-			expect(page).to have_content 'Pic'
+			find('.index-image-link').click
+			expect(page).to have_css('.main-image')
 			expect(current_path).to eq "/posts/#{pic.id}"
 		end
 
@@ -55,11 +55,11 @@ feature 'posts' do
 
 		scenario 'let a user edit a post' do
 			sign_up("a@a.com")
+			find('.index-image-link').click
 			click_link 'Edit'
 			fill_in 'Name', with: 'Picture'
 			click_button 'Update Post'
-			expect(page).to have_content "Picture"
-			expect(current_path).to eq "/posts"
+			expect(page).to have_css('.main-image')
 		end
 	end
 
@@ -68,8 +68,9 @@ feature 'posts' do
 
 		scenario 'let a user delete a post' do
 			sign_up("a@a.com")
+			find('.index-image-link').click
 			click_link 'Delete'
-			expect(page).not_to have_content "Pic"
+			expect(page).not_to have_css('.index-image')
 			expect(page).to have_content "Post deleted successfully"
 		end
 	end

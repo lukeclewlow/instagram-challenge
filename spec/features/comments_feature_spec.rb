@@ -5,7 +5,7 @@ feature 'commenting' do
 
 	scenario 'allows users to leave a comment' do
 		sign_up("a@a.com")
-		click_link 'Pic'
+		find('.index-image-link').click
 		click_link 'Comment'
 		fill_in "Thoughts", with: "Nice"
 		click_button 'Leave Comment'
@@ -14,12 +14,13 @@ feature 'commenting' do
 
 	scenario 'comment is deleted if post is deleted' do
 		sign_up("a@a.com")
-		click_link 'Pic'
+		find('.index-image-link').click
 		click_link 'Comment'
 		fill_in "Thoughts", with: "Nice"
 		expect(page).to have_content "Nice"
 		click_button 'Leave Comment'
 		visit '/posts'
+		find('.index-image-link').click
 		click_link 'Delete'
 		expect(page).not_to have_content "Nice"
 	end

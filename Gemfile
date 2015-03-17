@@ -34,6 +34,8 @@ gem 'poltergeist'
 
 gem 'database_cleaner'
 
+gem 'launchy'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
