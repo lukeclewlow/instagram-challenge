@@ -90,12 +90,18 @@ section {
 
 .likes_count {
 	text-align: left;
-	padding-right: 5%;
+	padding: 0;
+	padding-left: 1em;
 }
 
 .likes-link {
 	text-align: right;
 	padding-left: 5%;
+}
+
+.like {
+	text-align: left;
+	padding-left: .25em;
 }
 
 .col-1 {
