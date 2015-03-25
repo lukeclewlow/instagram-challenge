@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
-  $('.likes-link').on('click', function(event){
+
+
+  $('[class^=likes-link]').on('click', function(event){
   		
       event.preventDefault();
 
-      var likeCount = $(".likes_count");
+      var likeCount = $("[class^=likes_count]");
 
       console.log(likeCount);
 
