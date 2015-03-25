@@ -8,8 +8,8 @@
 		<% if @posts.any? %>
 			<% @posts.each do |post| %>
 				<h2><%= link_to (image_tag post.image.url(:large), :class => "index-image", :alt=> "pic"), post_path(post), :class => "index-image-link" %></h2>
-				<span class="likes-link"><%= link_to (image_tag('thumbs-up.png', :class => "thumbs-up")), post_likes_path(post), method: :post, class: "likes-link" %></span>
-				<span class='likes_count'><%= post.likes.count %> <%= 'like'.pluralize(post.likes.count) %> </span>
+				<span><%= link_to (image_tag('thumbs-up.png', :class => "thumbs-up")), post_likes_path(post), :class => "likes-link" %></span>
+				<span class='likes_count'><%= post.likes.count %></span><%= 'like'.pluralize(post.likes.count) %> 
 			<% end %>
 		<% else %>
 			<h1> No posts yet </h1>

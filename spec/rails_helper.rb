@@ -5,9 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'helper'
-
 require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
 require 'support/database_cleaner'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -29,6 +27,8 @@ require 'support/database_cleaner'
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
